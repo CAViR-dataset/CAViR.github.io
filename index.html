@@ -3,13 +3,13 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <title>Towards Scalable Video Anomaly Retrieval: A Synthetic Video-Text Benchmark</title>
+  <title>Can Synthetic Anomalies Facilitate Real-World Video Anomaly Retrieval?</title>
   <link href="./files/style.css" rel="stylesheet">
 </head>
 
 <body>
   <div class="content">
-    <h1><strong>Towards Scalable Video Anomaly Retrieval: A Synthetic Video-Text Benchmark</strong></h1>
+    <h1><strong>Can Synthetic Anomalies Facilitate Real-World Video Anomaly Retrieval?</strong></h1>
 
     <font size="+1">
       <p style="text-align: center;" class="serif">
@@ -366,58 +366,20 @@
   </div>
   <div class="content">
     <h2 style="text-align:center;">Abstract</h2>
-    <img class="summary-img" src="./files/teaser - 1900-480_00.png" style="width:90%;"> <br>
-    <p> Video anomaly retrieval aims to localize anomalous events in videos
-        using natural language queries to facilitate public safety. However,
-        existing datasets suffer from severe limitations: (1) data scarcity due
-        to the long-tail nature of real-world anomalies, and (2) privacy con-
-        straints that impede large-scale collection. To address the aforemen-
-        tioned issues in one go, we introduce SVTA (Synthetic Video-Text
-        Anomaly benchmark), the first large-scale dataset for cross-modal
-        anomaly retrieval, leveraging generative models to overcome data
-        availability challenges. Specifically, we collect and generate video
-        descriptions via the off-the-shelf LLM (Large Language Model) cov-
-        ering 68 anomaly categories, e.g., throwing, stealing, and shooting.
-        These descriptions encompass common long-tail events. We adopt
-        these texts to guide the video generative model to produce diverse
-        and high-quality videos. Finally, our SVTA involves 41,315 videos
-        (1.36M frames) with paired captions, covering 30 normal activities,
-        e.g., standing, walking, and sports, and 68 anomalous events, e.g.,
-        falling, fighting, theft, explosions, and natural disasters. We adopt
-        three widely-used video-text retrieval baselines to comprehensively
-        test our SVTA, revealing SVTA's challenging nature and its effec-
-        tiveness in evaluating a robust cross-modal retrieval method. SVTA
-        eliminates privacy risks associated with real-world anomaly col-
-        lection while maintaining realistic scenarios. 
+    <img class="summary-img" src="./files/teaser.png" style="width:90%;"> <br>
+    <p>
+      Video anomaly retrieval aims to localize anomalous events via natural language queries for public safety. Existing datasets are limited by data scarcity (due to long-tail anomalies) and privacy constraints. We introduce the <b>C</b>ross-modal <b>A</b>nomaly <b>Vi</b>deo <b>R</b>etrieval (<b>CAViR</b>) benchmark, a large-scale synthetic dataset generated to overcome these challenges. CAViR contains 41,315 videos (1.36M frames) with matched captions covering 30 normal and 68 anomalous events (<i>e.g.</i>, falling, fighting). To validate learning from synthetic data, we propose the <b>F</b>low-guided <b>L</b>anguage-video <b>A</b>lignment with <b>M</b>ixture-of-<b>E</b>xperts (<b>FLAME</b>) framework. FLAME incorporates two modules: (1) Token-Aware Mixture-of-experts (TAM) for fine-grained spatial representation via token-aware experts for normal/anomaly behaviors; (2) Cross-modal Flow Predictor (CFP) linking motion text with visual dynamics using optical flow for temporal modeling. Experiments show FLAME achieves state-of-the-art anomaly retrieval on CAViR and real-world UCFCrime-AR, with text-to-video Recall@1 of 58.5% and 41.0%, respectively.
     </p>
   </div>
 
   <div class="content">
-    <h2>Approach</h2>
-    <img class="summary-img" src="./files/pipeline_00.png" style="width:90%;"> <br>
-    <p> Data scarcity caused by the long-tail nature of real-world anomalies
-        and privacy constraints hinder large-scale anomaly data collection
-        from real-world scenarios. Fortunately, recent advances in Large
-        Language Models (LLMs) and video foundation models enable high-
-        quality text and video generation. Inspired by this, we propose to
-        leverage LLMs and video generative models to create a large-scale
-        cross-modal video anomaly retrieval benchmark. We
-        provide an overview of our Synthetic Video-Text Anomaly (SVTA)
-        benchmark construction. First, we collect and generate diverse
-        video descriptions via LLM. Second, we leverage a state-of-the-art open-source video generative model to craft high-quality
-        videos. Third, we adopt LLM to assign preliminary attributes for samples lacking explicit normal/anomaly labels and refine all
-        labels by K-Means clustering and manual verification. The final dataset integrates 41,315 rigorously curated video-text pairs.
-
+    <h2>Benchmark</h2>
+    <img class="summary-img" src="./files/pipe.png" style="width:90%;"> <br>
+    <p> Pipeline of our Cross-modal Anomaly Video Retrieval (CAViR) benchmark construction. First, we collect and generate diverse video descriptions via LLM. Second, we leverage a state-of-the-art open-source video generative model to craft high-quality videos. Third, we adopt LLM to assign preliminary attributes for samples lacking explicit normal/anomaly labels and refine all labels by K-Means clustering and manual verification. After augmenting each video with four additional captions in distinct styles, the final dataset integrates $206,575$ rigorously curated video-text pairs.
     </p>
     <br>
-
-  </div>
-
-  <div class="content">
-    <h2>Statistics</h2>
-    <p> Comparison of the proposed SVTA dataset and some of the other publicly available datasets for anomaly detection and
-        anomaly retrieval. Our dataset provides many more video samples, action classes (anomaly and normal), and background in
-        comparison with other available datasets for anomaly retrieval (Anno. means Annotation).
+    
+    <p> Comparison of the proposed CAViR dataset and some of the other publicly available datasets (<i>i.e.</i>, UBnormal, ShanghaiTech, UCF-Crime, PAB, UCA, UCFCrime-AR) for anomaly detection and anomaly retrieval. Our dataset provides many more video samples, action classes (anomaly and normal), and background in comparison with other available datasets for anomaly retrieval (Anno. means Annotation).
     </p>
     <table class="comparison-table">
       <thead>
@@ -435,13 +397,24 @@
       </thead>
       <tbody>
         <tr>
+          <td>PAB</td>
+          <td>Image, Text</td>
+          <td>Frame-level Text</td>
+          <td>Action Text</td>
+          <td>-</td>
+          <td>1.02M</td>
+          <td>1,600</td>
+          <td>3:2</td>
+          <td>Synthesis & Collection</td>
+        </tr>
+        <tr>
           <td>UBnormal</td>
           <td>Video</td>
           <td>Frame-level Tag</td>
           <td>Action Label</td>
           <td>543</td>
           <td>-</td>
-          <td>22 Anomaly</td>
+          <td>22</td>
           <td>2:3</td>
           <td>Synthesis</td>
         </tr>
@@ -452,7 +425,7 @@
           <td>Action Label</td>
           <td>437</td>
           <td>-</td>
-          <td>11 Anomaly</td>
+          <td>11</td>
           <td>1:18</td>
           <td>Collection</td>
         </tr>
@@ -463,7 +436,7 @@
           <td>Action Label</td>
           <td>1,900</td>
           <td>-</td>
-          <td>13 Anomaly</td>
+          <td>13</td>
           <td>1:1</td>
           <td>Collection</td>
         </tr>
@@ -474,7 +447,7 @@
           <td>Action Text</td>
           <td>1,900</td>
           <td>23,542</td>
-          <td>13 Anomaly</td>
+          <td>13</td>
           <td>1:1</td>
           <td>Collection</td>
         </tr>
@@ -485,24 +458,24 @@
           <td>Action Text</td>
           <td>1,900</td>
           <td>1,900</td>
-          <td>13 Anomaly</td>
+          <td>13</td>
           <td>1:1</td>
           <td>Collection</td>
         </tr>
         <tr>
-          <td>SVTA (Ours)</td>
+          <td>CAViR (Ours)</td>
           <td>Video, Text</td>
           <td>Video-level Text</td>
           <td>Action Text</td>
           <td>41,315</td>
-          <td>41,315</td>
-          <td>68 Anomaly</td>
+          <td>206,575</td>
+          <td>68</td>
           <td>3:2</td>
           <td>Synthesis</td>
         </tr>
       </tbody>
     </table>
-    <p> An overview of the SVTA attribute annotations, including the distribution of (a) normal and anomaly
+    <p> An overview of the CAViR attribute annotations, including the distribution of (a) normal and anomaly
         videos, (b) normal categories, and (c) anomaly categories.
     </p>
     <div class="charts-container">
