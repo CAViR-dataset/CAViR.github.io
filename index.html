@@ -375,7 +375,7 @@
   <div class="content">
     <h2>Benchmark</h2>
     <img class="summary-img" src="./files/pipe.png" style="width:90%;"> <br>
-    <p> Pipeline of our Cross-modal Anomaly Video Retrieval (CAViR) benchmark construction. First, we collect and generate diverse video descriptions via LLM. Second, we leverage a state-of-the-art open-source video generative model to craft high-quality videos. Third, we adopt LLM to assign preliminary attributes for samples lacking explicit normal/anomaly labels and refine all labels by K-Means clustering and manual verification. After augmenting each video with four additional captions in distinct styles, the final dataset integrates $206,575$ rigorously curated video-text pairs.
+    <p> Pipeline of our Cross-modal Anomaly Video Retrieval (CAViR) benchmark construction. First, we collect and generate diverse video descriptions via LLM. Second, we leverage a state-of-the-art open-source video generative model to craft high-quality videos. Third, we adopt LLM to assign preliminary attributes for samples lacking explicit normal/anomaly labels and refine all labels by K-Means clustering and manual verification. After augmenting each video with four additional captions in distinct styles, the final dataset integrates 206,575 rigorously curated video-text pairs.
     </p>
     <br>
     
@@ -475,6 +475,7 @@
         </tr>
       </tbody>
     </table>
+    <br>
     <p> An overview of the CAViR attribute annotations, including the distribution of (a) normal and anomaly
         videos, (b) normal categories, and (c) anomaly categories.
     </p>
@@ -605,6 +606,7 @@
     </tbody>
   </table>
 
+  <br>
   <p>
     This table presents the results of zero-shot and finetuned multimodal T2V and V2T retrieval on UCFCrime-AR.
     FLAME achieves T2V R@1 of 41.0% and V2T R@1 of 39.7% when finetuned on UCFCrime-AR,
@@ -760,6 +762,7 @@
     </tbody>
   </table>
 
+  <br>
   <p>
     These are some retrieved examples of FLAME on CAViR. We visualize top 3 retrieved videos (green: correct; orange: incorrect).
     Some fine-grained actions are not well captured by existing approaches, demonstrating the challenge of our dataset.
