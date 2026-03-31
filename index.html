@@ -501,7 +501,7 @@
   </div>
 
   <div class="content">
-    <h2 style="text-align:center;">Method</h2>
+    <h2>Method</h2>
     <img class="summary-img" src="./files/frame.png" style="width:90%;"> <br>
     <p>
       Overview of our FLAME (Flow-guided Language-video Alignment with Mixture-of-experts) framework, which contains two core modules: (b) Token-Aware Mixture-of-experts (TAM) for fine-grained spatial representation via token-aware experts distinguishing normal and anomalous behaviors, and (c) Cross-modal Flow Predictor (CFP) linking motion text with visual dynamics through optical flow for temporal modeling. The framework is jointly optimized by optical flow prediction loss and video-text cross-modal alignment objectives.
@@ -509,367 +509,264 @@
   </div>
 
   <div class="content">
-    <h2>Results</h2>
-    <p> This table presents the results of multimodal text-to-video (T2V) and video-to-text (V2T) retrieval on SVTA, 
-        in terms of Recall Rate (R@1, R@5, R@10), Median Rank (MdR), and Mean Rank (MnR).
-    </p>
-    <table class="comparison-table">
-        <thead>
-          <tr>
-            <th rowspan="2">Method</th>
-            <th colspan="5" class="t2v-group no-border-right">T2V</th>
-            <th colspan="5" class="v2t-group no-border-left">V2T</th>
-          </tr>
-          <tr class="sub-header">
-            <th class="t2v-group"><span>R@1↑</span></th>
-            <th class="t2v-group"><span>R@5↑</span></th>
-            <th class="t2v-group"><span>R@10↑</span></th>
-            <th class="t2v-group"><span>MdR↓</span></th>
-            <th class="t2v-group"><span>MnR↓</span></th>
+  <h2>Results</h2>
 
-            <th class="v2t-group"><span>R@1↑</span></th>
-            <th class="v2t-group"><span>R@5↑</span></th>
-            <th class="v2t-group"><span>R@10↑</span></th>
-            <th class="v2t-group"><span>MdR↓</span></th>
-            <th class="v2t-group"><span>MnR↓</span></th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>CLIP4Clip-MeanP</td>
-                <td>54.0</td>
-                <td>81.7</td>
-                <td>88.9</td>
-                <td>1.0</td>
-                <td>8.8</td>
-                <td>55.8</td>
-                <td>82.5</td>
-                <td>89.4</td>
-                <td>1.0</td>
-                <td>7.9</td>
-            </tr>
-            <tr>
-                <td>CLIP4Clip-seqLSTM</td>
-                <td>53.9</td>
-                <td>81.7</td>
-                <td>88.7</td>
-                <td>1.0</td>
-                <td>8.7</td>
-                <td>55.7</td>
-                <td>82.4</td>
-                <td>89.4</td>
-                <td>1.0</td>
-                <td>7.8</td>
-            </tr>
-            <tr>
-                <td>CLIP4Clip-seqTransf</td>
-                <td>55.4</td>
-                <td>82.6</td>
-                <td>89.4</td>
-                <td>1.0</td>
-                <td>7.9</td>
-                <td>55.7</td>
-                <td>82.9</td>
-                <td>89.7</td>
-                <td>1.0</td>
-                <td>7.6</td>
-            </tr>
-            <tr>
-                <td>CLIP4Clip-tightTransf</td>
-                <td>46.3</td>
-                <td>75.6</td>
-                <td>84.7</td>
-                <td>2.0</td>
-                <td>15.3</td>
-                <td>46.9</td>
-                <td>76.2</td>
-                <td>85.2</td>
-                <td>2.0</td>
-                <td>16.3</td>
-            </tr>
-            <tr>
-                <td>X-CLIP (ViT-B/32)</td>
-                <td>52.9</td>
-                <td>79.9</td>
-                <td>88.1</td>
-                <td>1.0</td>
-                <td>9.0</td>
-                <td>52.9</td>
-                <td>80.2</td>
-                <td>87.9</td>
-                <td>1.0</td>
-                <td>9.4</td>
-            </tr>
-            <tr>
-                <td>X-CLIP (ViT-B/16)</td>
-                <td>55.8</td>
-                <td>82.2</td>
-                <td>89.6</td>
-                <td>1.0</td>
-                <td>8.0</td>
-                <td>56.2</td>
-                <td>82.1</td>
-                <td>89.4</td>
-                <td>1.0</td>
-                <td>8.1</td>
-            </tr>
-            <tr>
-                <td>GRAM</td>
-                <td>57.3</td>
-                <td>82.0</td>
-                <td>88.7</td>
-                <td>1.0</td>
-                <td>130.5</td>
-                <td>56.5</td>
-                <td>81.6</td>
-                <td>88.3</td>
-                <td>1.0</td>
-                <td>137.9</td>
-            </tr>
-        </tbody>
-    </table>
-    <p> These are some retrieved examples of GRAM on SVTA. We visualize top 3 retrieved videos (green: correct; orange: incorrect).
-        We show the ranking list of on our SVTA dataset. We could observe that our dataset is
-        still challenging to prevailing cross-modality models. 
-    </p>
-    <img class="summary-img" src="./files/retrival_00.png" style="width:90%;"> <br>
-    <p> This table presents the results of Zero-shot multimodal text-to-video (T2V) and video-to-text (V2T) retrieval on UCFCrime-AR, 
-        in terms of Recall Rate (R@1, R@5, R@10), Median Rank (MdR), and Mean Rank (MnR).
-    </p>
-    <table class="comparison-table">
-        <thead>
-          <tr>
-            <th rowspan="2">Method</th>
-            <th colspan="5" class="t2v-group no-border-right">T2V</th>
-            <th colspan="5" class="v2t-group no-border-left">V2T</th>
-          </tr>
-          <tr class="sub-header">
-            <th class="t2v-group"><span>R@1↑</span></th>
-            <th class="t2v-group"><span>R@5↑</span></th>
-            <th class="t2v-group"><span>R@10↑</span></th>
-            <th class="t2v-group"><span>MdR↓</span></th>
-            <th class="t2v-group"><span>MnR↓</span></th>
+  <p>
+    This table presents the results of multimodal text-to-video (T2V) and video-to-text (V2T) retrieval on CAViR,
+    in terms of Recall Rate (R@1, R@5, R@10), Median Rank (MdR), and Mean Rank (MnR).
+    FLAME outperforms all baselines in both zero-shot and finetuned settings despite being pre-trained on only 16M image-text pairs.
+  </p>
 
-            <th class="v2t-group"><span>R@1↑</span></th>
-            <th class="v2t-group"><span>R@5↑</span></th>
-            <th class="v2t-group"><span>R@10↑</span></th>
-            <th class="v2t-group"><span>MdR↓</span></th>
-            <th class="v2t-group"><span>MnR↓</span></th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>CLIP4Clip-MeanP</td>
-                <td>23.6</td>
-                <td>50.0</td>
-                <td>63.0</td>
-                <td>5.5</td>
-                <td>15.7</td>
-                <td>16.7</td>
-                <td>39.5</td>
-                <td>54.1</td>
-                <td>9.0</td>
-                <td>22.6</td>
-            </tr>
-            <tr>
-                <td>CLIP4Clip-seqLSTM</td>
-                <td>22.9</td>
-                <td>49.0</td>
-                <td>64.4</td>
-                <td>6.0</td>
-                <td>16.0</td>
-                <td>18.4</td>
-                <td>36.1</td>
-                <td>52.4</td>
-                <td>10.0</td>
-                <td>23.5</td>
-            </tr>
-            <tr>
-                <td>CLIP4Clip-seqTransf</td>
-                <td>24.0</td>
-                <td>47.6</td>
-                <td>64.0</td>
-                <td>6.0</td>
-                <td>16.1</td>
-                <td>17.7</td>
-                <td>36.4</td>
-                <td>51.0</td>
-                <td>10.0</td>
-                <td>22.4</td>
-            </tr>
-            <tr>
-                <td>CLIP4Clip-tightTransf</td>
-                <td>16.8</td>
-                <td>41.4</td>
-                <td>53.4</td>
-                <td>8.0</td>
-                <td>32.9</td>
-                <td>14.3</td>
-                <td>34.0</td>
-                <td>49.0</td>
-                <td>12.0</td>
-                <td>39.4</td>
-            </tr>
-            <tr>
-                <td>X-CLIP (ViT-B/32)</td>
-                <td>24.0</td>
-                <td>49.7</td>
-                <td>63.4</td>
-                <td>6.0</td>
-                <td>16.4</td>
-                <td>17.7</td>
-                <td>36.4</td>
-                <td>52.7</td>
-                <td>9.0</td>
-                <td>22.7</td>
-            </tr>
-            <tr>
-                <td>X-CLIP (ViT-B/16)</td>
-                <td>27.4</td>
-                <td>53.1</td>
-                <td>67.8</td>
-                <td>5.0</td>
-                <td>14.0</td>
-                <td>20.4</td>
-                <td>44.6</td>
-                <td>59.5</td>
-                <td>7.0</td>
-                <td>19.6</td>
-            </tr>
-            <tr>
-                <td>GRAM</td>
-                <td>34.5</td>
-                <td>60.7</td>
-                <td>70.7</td>
-                <td>3.0</td>
-                <td>17.8</td>
-                <td>32.4</td>
-                <td>57.2</td>
-                <td>68.6</td>
-                <td>4.0</td>
-                <td>26.3</td>
-            </tr>
-        </tbody>
-    </table>
-    <p> This table presents the results of Zero-shot multimodal text-to-video (T2V) and video-to-text (V2T) retrieval on OOPS!, 
-        in terms of Recall Rate (R@1, R@5, R@10), Median Rank (MdR), and Mean Rank (MnR).
-    </p>
-    <table class="comparison-table">
-        <thead>
-          <tr>
-            <th rowspan="2">Method</th>
-            <th colspan="5" class="t2v-group no-border-right">T2V</th>
-            <th colspan="5" class="v2t-group no-border-left">V2T</th>
-          </tr>
-          <tr class="sub-header">
-            <th class="t2v-group"><span>R@1↑</span></th>
-            <th class="t2v-group"><span>R@5↑</span></th>
-            <th class="t2v-group"><span>R@10↑</span></th>
-            <th class="t2v-group"><span>MdR↓</span></th>
-            <th class="t2v-group"><span>MnR↓</span></th>
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th rowspan="2">Method</th>
+        <th rowspan="2">Pretrain</th>
+        <th rowspan="2">#Data</th>
+        <th colspan="5" class="t2v-group no-border-right">T2V</th>
+        <th colspan="5" class="v2t-group no-border-left">V2T</th>
+      </tr>
+      <tr class="sub-header">
+        <th class="t2v-group"><span>R@1↑</span></th>
+        <th class="t2v-group"><span>R@5↑</span></th>
+        <th class="t2v-group"><span>R@10↑</span></th>
+        <th class="t2v-group"><span>MdR↓</span></th>
+        <th class="t2v-group"><span>MnR↓</span></th>
+        <th class="v2t-group"><span>R@1↑</span></th>
+        <th class="v2t-group"><span>R@5↑</span></th>
+        <th class="v2t-group"><span>R@10↑</span></th>
+        <th class="v2t-group"><span>MdR↓</span></th>
+        <th class="v2t-group"><span>MnR↓</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="13" style="background:#f5f5f5;font-style:italic;font-size:13px;padding:4px 8px;border-top:1px solid #ccc;"><em>w/o</em> finetuning on CAViR</td></tr>
+      <tr>
+        <td>CLIP4Clip-tightTransf</td><td>WIT</td><td>400M</td>
+        <td>0.0</td><td>0.0</td><td>0.1</td><td>4282.0</td><td>4230.4</td>
+        <td>0.0</td><td>0.0</td><td>0.1</td><td>4226.5</td><td>4206.6</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqTransf</td><td>WIT</td><td>400M</td>
+        <td>16.6</td><td>32.5</td><td>40.5</td><td>23.0</td><td>303.5</td>
+        <td>14.3</td><td>28.3</td><td>35.5</td><td>34.0</td><td>225.6</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqLSTM</td><td>WIT</td><td>400M</td>
+        <td>17.9</td><td>35.3</td><td>43.0</td><td>19.0</td><td>290.5</td>
+        <td>16.5</td><td>32.5</td><td>40.6</td><td>23.0</td><td>191.0</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-MeanP</td><td>WIT</td><td>400M</td>
+        <td>20.0</td><td>38.2</td><td>46.2</td><td>14.0</td><td>243.4</td>
+        <td>17.5</td><td>34.2</td><td>42.7</td><td>20.0</td><td>175.7</td>
+      </tr>
+      <tr>
+        <td>X-CLIP</td><td>WIT</td><td>400M</td>
+        <td>19.3</td><td>36.8</td><td>45.3</td><td>15.0</td><td>243.6</td>
+        <td>16.3</td><td>32.7</td><td>40.4</td><td>22.0</td><td>159.7</td>
+      </tr>
+      <tr style="font-weight:bold;">
+        <td>FLAME (Ours)</td><td>MS-COCO, etc.</td><td>16M</td>
+        <td>35.9</td><td>56.5</td><td>64.1</td><td>3.0</td><td>127.0</td>
+        <td>31.2</td><td>53.4</td><td>62.2</td><td>4.0</td><td>77.4</td>
+      </tr>
+      <tr><td colspan="13" style="background:#f5f5f5;font-style:italic;font-size:13px;padding:4px 8px;border-top:1px solid #ccc;"><em>w/</em> finetuning on CAViR</td></tr>
+      <tr>
+        <td>CLIP4Clip-tightTransf</td><td>WIT</td><td>400M</td>
+        <td>40.9</td><td>68.1</td><td>77.6</td><td>2.0</td><td>20.9</td>
+        <td>40.6</td><td>68.0</td><td>77.4</td><td>2.0</td><td>19.7</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqTransf</td><td>WIT</td><td>400M</td>
+        <td>49.1</td><td>75.1</td><td>83.8</td><td>2.0</td><td>14.5</td>
+        <td>48.9</td><td>75.0</td><td>83.8</td><td>2.0</td><td>12.8</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqLSTM</td><td>WIT</td><td>400M</td>
+        <td>48.1</td><td>74.0</td><td>82.9</td><td>2.0</td><td>15.8</td>
+        <td>49.2</td><td>75.7</td><td>83.6</td><td>2.0</td><td>13.1</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-MeanP</td><td>WIT</td><td>400M</td>
+        <td>48.0</td><td>73.7</td><td>82.8</td><td>2.0</td><td>16.7</td>
+        <td>49.7</td><td>75.7</td><td>83.8</td><td>2.0</td><td>13.1</td>
+      </tr>
+      <tr>
+        <td>X-CLIP</td><td>WIT</td><td>400M</td>
+        <td>49.3</td><td>75.6</td><td>83.8</td><td>2.0</td><td>13.9</td>
+        <td>49.7</td><td>75.4</td><td>83.8</td><td>2.0</td><td>12.6</td>
+      </tr>
+      <tr style="font-weight:bold;">
+        <td>FLAME (Ours)</td><td>MS-COCO, etc.</td><td>16M</td>
+        <td>58.5</td><td>80.8</td><td>87.2</td><td>1.0</td><td>12.7</td>
+        <td>58.1</td><td>81.0</td><td>87.7</td><td>1.0</td><td>9.6</td>
+      </tr>
+    </tbody>
+  </table>
 
-            <th class="v2t-group"><span>R@1↑</span></th>
-            <th class="v2t-group"><span>R@5↑</span></th>
-            <th class="v2t-group"><span>R@10↑</span></th>
-            <th class="v2t-group"><span>MdR↓</span></th>
-            <th class="v2t-group"><span>MnR↓</span></th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>CLIP4Clip-MeanP</td>
-                <td>16.1</td>
-                <td>35.9</td>
-                <td>45.6</td>
-                <td>14.0</td>
-                <td>112.4</td>
-                <td>14.0</td>
-                <td>31.2</td>
-                <td>40.6</td>
-                <td>19.0</td>
-                <td>127.6</td>
-            </tr>
-            <tr>
-                <td>CLIP4Clip-seqLSTM</td>
-                <td>15.5</td>
-                <td>35.5</td>
-                <td>45.2</td>
-                <td>14.0</td>
-                <td>114.0</td>
-                <td>12.8</td>
-                <td>30.5</td>
-                <td>39.5</td>
-                <td>20.0</td>
-                <td>129.5</td>
-            </tr>
-            <tr>
-                <td>CLIP4Clip-seqTransf</td>
-                <td>16.0</td>
-                <td>35.5</td>
-                <td>45.5</td>
-                <td>14.0</td>
-                <td>114.4</td>
-                <td>13.0</td>
-                <td>30.6</td>
-                <td>40.6</td>
-                <td>19.0</td>
-                <td>127.4</td>
-            </tr>
-            <tr>
-                <td>CLIP4Clip-tightTransf</td>
-                <td>11.8</td>
-                <td>27.7</td>
-                <td>36.8</td>
-                <td>24.0</td>
-                <td>219.3</td>
-                <td>9.5</td>
-                <td>24.9</td>
-                <td>33.3</td>
-                <td>29.0</td>
-                <td>230.8</td>
-            </tr>
-            <tr>
-                <td>X-CLIP (ViT-B/32)</td>
-                <td>15.7</td>
-                <td>35.6</td>
-                <td>46.9</td>
-                <td>13.0</td>
-                <td>108.0</td>
-                <td>14.1</td>
-                <td>32.8</td>
-                <td>41.8</td>
-                <td>17.0</td>
-                <td>110.9</td>
-            </tr>
-            <tr>
-                <td>X-CLIP (ViT-B/16)</td>
-                <td>18.9</td>
-                <td>41.8</td>
-                <td>52.2</td>
-                <td>9.0</td>
-                <td>84.4</td>
-                <td>16.5</td>
-                <td>36.8</td>
-                <td>47.0</td>
-                <td>12.0</td>
-                <td>91.9</td>
-            </tr>
-            <tr>
-                <td>GRAM</td>
-                <td>18.6</td>
-                <td>39.0</td>
-                <td>48.1</td>
-                <td>12.0</td>
-                <td>542.2</td>
-                <td>19.0</td>
-                <td>39.1</td>
-                <td>49.1</td>
-                <td>11.0</td>
-                <td>551.0</td>
-            </tr>
-        </tbody>
-    </table>
-  </div>
+  <p>
+    This table presents the results of zero-shot and finetuned multimodal T2V and V2T retrieval on UCFCrime-AR.
+    FLAME achieves T2V R@1 of 41.0% and V2T R@1 of 39.7% when finetuned on UCFCrime-AR,
+    surpassing all compared methods by over 10% in R@1. Models marked with * are cited from original papers.
+  </p>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th rowspan="2">Method</th>
+        <th rowspan="2">Pretrain</th>
+        <th rowspan="2">#Data</th>
+        <th colspan="5" class="t2v-group no-border-right">T2V</th>
+        <th colspan="5" class="v2t-group no-border-left">V2T</th>
+      </tr>
+      <tr class="sub-header">
+        <th class="t2v-group"><span>R@1↑</span></th>
+        <th class="t2v-group"><span>R@5↑</span></th>
+        <th class="t2v-group"><span>R@10↑</span></th>
+        <th class="t2v-group"><span>MdR↓</span></th>
+        <th class="t2v-group"><span>MnR↓</span></th>
+        <th class="v2t-group"><span>R@1↑</span></th>
+        <th class="v2t-group"><span>R@5↑</span></th>
+        <th class="v2t-group"><span>R@10↑</span></th>
+        <th class="v2t-group"><span>MdR↓</span></th>
+        <th class="v2t-group"><span>MnR↓</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="13" style="background:#f5f5f5;font-style:italic;font-size:13px;padding:4px 8px;border-top:1px solid #ccc;"><em>w/o</em> finetuning on video anomaly retrieval dataset</td></tr>
+      <tr>
+        <td>CLIP4Clip-tightTransf</td><td>WIT</td><td>400M</td>
+        <td>1.0</td><td>1.7</td><td>3.4</td><td>137.5</td><td>140.8</td>
+        <td>0.3</td><td>2.0</td><td>3.7</td><td>143.5</td><td>143.3</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqTransf</td><td>WIT</td><td>400M</td>
+        <td>15.8</td><td>34.2</td><td>53.1</td><td>9.0</td><td>24.3</td>
+        <td>13.9</td><td>31.0</td><td>41.8</td><td>16.0</td><td>30.7</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqLSTM</td><td>WIT</td><td>400M</td>
+        <td>17.1</td><td>38.7</td><td>56.2</td><td>8.5</td><td>23.2</td>
+        <td>13.6</td><td>32.0</td><td>40.8</td><td>15.0</td><td>30.6</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-MeanP</td><td>WIT</td><td>400M</td>
+        <td>18.7</td><td>40.1</td><td>56.8</td><td>8.0</td><td>20.9</td>
+        <td>15.3</td><td>33.3</td><td>44.2</td><td>13.0</td><td>28.5</td>
+      </tr>
+      <tr>
+        <td>X-CLIP</td><td>WIT</td><td>400M</td>
+        <td>18.8</td><td>46.2</td><td>60.6</td><td>7.0</td><td>19.7</td>
+        <td>15.3</td><td>37.1</td><td>48.0</td><td>11.5</td><td>24.5</td>
+      </tr>
+      <tr style="font-weight:bold;">
+        <td>FLAME (Ours)</td><td>MS-COCO, etc.</td><td>16M</td>
+        <td>22.8</td><td>47.9</td><td>63.5</td><td>6.0</td><td>17.0</td>
+        <td>17.2</td><td>44.5</td><td>56.9</td><td>8.0</td><td>20.6</td>
+      </tr>
+      <tr><td colspan="13" style="background:#f5f5f5;font-style:italic;font-size:13px;padding:4px 8px;border-top:1px solid #ccc;"><em>w/</em> finetuning on CAViR</td></tr>
+      <tr>
+        <td>CLIP4Clip-tightTransf</td><td>WIT</td><td>400M</td>
+        <td>17.5</td><td>44.9</td><td>59.6</td><td>7.0</td><td>18.8</td>
+        <td>15.0</td><td>37.8</td><td>52.7</td><td>9.5</td><td>24.7</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqTransf</td><td>WIT</td><td>400M</td>
+        <td>24.7</td><td>53.1</td><td>66.8</td><td>5.0</td><td>16.8</td>
+        <td>18.4</td><td>41.5</td><td>53.7</td><td>9.0</td><td>21.3</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqLSTM</td><td>WIT</td><td>400M</td>
+        <td>23.6</td><td>50.3</td><td>68.8</td><td>5.0</td><td>15.7</td>
+        <td>17.3</td><td>37.8</td><td>53.1</td><td>9.0</td><td>20.7</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-MeanP</td><td>WIT</td><td>400M</td>
+        <td>22.9</td><td>52.4</td><td>63.7</td><td>5.0</td><td>16.6</td>
+        <td>19.4</td><td>41.2</td><td>54.1</td><td>10.0</td><td>21.4</td>
+      </tr>
+      <tr>
+        <td>X-CLIP</td><td>WIT</td><td>400M</td>
+        <td>28.1</td><td>54.8</td><td>66.4</td><td>4.5</td><td>14.9</td>
+        <td>20.4</td><td>42.5</td><td>57.5</td><td>8.0</td><td>19.3</td>
+      </tr>
+      <tr style="font-weight:bold;">
+        <td>FLAME (Ours)</td><td>MS-COCO, etc.</td><td>16M</td>
+        <td>33.8</td><td>56.2</td><td>70.0</td><td>4.0</td><td>13.6</td>
+        <td>24.1</td><td>49.0</td><td>60.7</td><td>6.0</td><td>19.9</td>
+      </tr>
+      <tr><td colspan="13" style="background:#f5f5f5;font-style:italic;font-size:13px;padding:4px 8px;border-top:1px solid #ccc;"><em>w/</em> finetuning on UCFCrime-AR</td></tr>
+      <tr>
+        <td>CE*</td><td>–</td><td>–</td>
+        <td>6.6</td><td>19.7</td><td>32.4</td><td>23.5</td><td>–</td>
+        <td>5.5</td><td>19.7</td><td>32.4</td><td>21.0</td><td>–</td>
+      </tr>
+      <tr>
+        <td>MMT*</td><td>–</td><td>–</td>
+        <td>8.3</td><td>26.2</td><td>39.3</td><td>16.0</td><td>–</td>
+        <td>–</td><td>–</td><td>–</td><td>–</td><td>–</td>
+      </tr>
+      <tr>
+        <td>T2VLAD*</td><td>–</td><td>–</td>
+        <td>7.6</td><td>23.4</td><td>39.7</td><td>15.5</td><td>–</td>
+        <td>6.2</td><td>27.9</td><td>43.1</td><td>14.0</td><td>–</td>
+      </tr>
+      <tr>
+        <td>HL-Net*</td><td>–</td><td>–</td>
+        <td>5.5</td><td>20.2</td><td>38.3</td><td>19.5</td><td>–</td>
+        <td>5.5</td><td>22.8</td><td>35.8</td><td>20.0</td><td>–</td>
+      </tr>
+      <tr>
+        <td>XML*</td><td>–</td><td>–</td>
+        <td>6.9</td><td>24.1</td><td>42.4</td><td>14.0</td><td>–</td>
+        <td>6.6</td><td>25.9</td><td>43.4</td><td>13.0</td><td>–</td>
+      </tr>
+      <tr>
+        <td>ALAN*</td><td>–</td><td>–</td>
+        <td>9.0</td><td>27.9</td><td>44.8</td><td>14.0</td><td>–</td>
+        <td>7.3</td><td>24.8</td><td>46.9</td><td>12.0</td><td>–</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-tightTransf</td><td>WIT</td><td>400M</td>
+        <td>16.4</td><td>43.5</td><td>56.8</td><td>8.0</td><td>18.3</td>
+        <td>18.7</td><td>37.1</td><td>55.1</td><td>9.0</td><td>19.0</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqTransf</td><td>WIT</td><td>400M</td>
+        <td>27.4</td><td>60.6</td><td>77.7</td><td>3.0</td><td>10.1</td>
+        <td>25.2</td><td>61.6</td><td>74.1</td><td>4.0</td><td>10.0</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-seqLSTM</td><td>WIT</td><td>400M</td>
+        <td>30.5</td><td>59.2</td><td>75.3</td><td>3.0</td><td>11.2</td>
+        <td>26.9</td><td>56.5</td><td>72.4</td><td>4.0</td><td>11.4</td>
+      </tr>
+      <tr>
+        <td>CLIP4Clip-MeanP</td><td>WIT</td><td>400M</td>
+        <td>29.8</td><td>58.9</td><td>76.0</td><td>3.0</td><td>10.8</td>
+        <td>26.9</td><td>59.2</td><td>72.1</td><td>3.5</td><td>11.0</td>
+      </tr>
+      <tr>
+        <td>X-CLIP</td><td>WIT</td><td>400M</td>
+        <td>30.8</td><td>62.3</td><td>74.0</td><td>3.0</td><td>10.3</td>
+        <td>28.6</td><td>57.1</td><td>73.5</td><td>4.0</td><td>9.9</td>
+      </tr>
+      <tr style="font-weight:bold;">
+        <td>FLAME (Ours)</td><td>MS-COCO, etc.</td><td>16M</td>
+        <td>41.0</td><td>67.9</td><td>77.9</td><td>3.0</td><td>9.2</td>
+        <td>39.7</td><td>65.9</td><td>76.6</td><td>3.0</td><td>9.4</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    These are some retrieved examples of FLAME on CAViR. We visualize top 3 retrieved videos (green: correct; orange: incorrect).
+    Some fine-grained actions are not well captured by existing approaches, demonstrating the challenge of our dataset.
+  </p>
+  <img class="summary-img" src="./files/retrival_flame.png" style="width:90%;"> <br>
+</div>
+
 
   <div class="content">
     <p class="serif">
